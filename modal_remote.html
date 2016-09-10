@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap3.3.6のModal(リモートモーダルダイアログ)を使用するサンプル</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" />
+</head>
+<body>
+  <h1>Bootstrap3.3.6 Modal(リモートモーダルダイアログ)</h1>
+  <div class="container">
+    <div class="well well-sm">
+      <h2>リモートモーダルダイアログの呼び出し方いろいろ</h2>
+      <a class="btn btn-default" href="modal_remote_dialog.html" data-toggle="modal" data-target="#remoteModal">anchor タグの href 属性</a>
+      <button type="button" class="btn btn-warning" data-remote="modal_remote_dialog.html" data-toggle="modal" data-target="#remoteModal">data-remote 属性 (deprecated)</button>
+      <button type="button" class="btn btn-default" id="remoteModalButton">JavaScript で表示</button>
+    </div><!-- /.well -->
+  </div><!-- /.container -->
+  <!-- リモートモーダルダイアログ の読込先 -->
+  <div class="modal fade" id="remoteModal" tabindex="-1" role="dialog" aria-labelledby="remoteModalLabel" aria-hidden="true" data-show="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Bootstrap: modal.js v3.3.6 では、[this.$element.find('.modal-content')...] している -->
+      </div> <!-- /.modal-content -->
+    </div> <!-- /.modal-dialog -->
+  </div> <!-- /.modal -->
+  
+  
+<a data-toggle="modal" href="http://fiddle.jshell.net/bHmRB/51/show/" data-target="#myModal">Click me !</a>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h4 class="modal-title">Modal title</h4>
+
+            </div>
+            <div class="modal-body"><div class="te"></div></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+  
+  
+  
+  <!--<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>-->
+  <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script>
+  $(function() {
+    // JavaScript で表示
+    $('#remoteModalButton').on('click', function() {
+      $('#remoteModal').removeData('bs.modal'); //< 毎回新規に読み込み
+      $('#remoteModal').modal({'remote': 'modal_remote_dialog.html'});
+    });
+    // ダイアログ表示前にJavaScriptで操作する
+    $('#remoteModal').on('loaded.bs.modal', function(e) {
+      $('#remoteModal .modal-body').append('<a class="btn btn-info" href="#addjs">JavaScript で追加したボタン</a>');
+    });
+    $('#remoteModal').on('click', '.modal-footer .btn-primary', function() {
+      $('#remoteModal').modal('hide');
+      alert('変更を保存をクリックしました。');
+    });
+    $('#remoteModal').on('click', 'a[href="#addjs"]', function() {
+      alert('JavaScript で追加したボタンをクリックしました。');
+      $('#remoteModal').modal('hide');
+    });
+  });
+  </script>
+</body>
+</html>

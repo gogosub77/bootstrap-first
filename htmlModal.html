@@ -1,0 +1,88 @@
+<!DOCTYPe html>
+<html lang="ja">
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>はじめてのBootstrap</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen">
+		<style>
+			body{padding-top:50px;}
+			.col-md-12{background-color: #f2dede}
+			.col-md-3{background-color: #dff0d8}
+			.col-md-9{background-color: #d9edf7}
+		</style>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Project name</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!--▼▼▼main▼▼-->
+<div class="modal" id="myModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">header</h4>
+			</div>
+			<div class="modal-body">
+				<p>コンテンツ</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				<button type="button" class="btn btn-primary">更新</button>
+			</div>
+		</div>
+	</div>
+</div>
+<button id="click" class="btn btn-primary">モーダルの起動JS</a>
+<a href="modal_remote_dialog.html" data-toggle="modal" data-target="myModal">Click</a>
+<div class="modal fade" id="myModal"></div>
+<a data-toggle="modal" href="#myModal" class="btn btn-primary">モーダル起動JS</a>
+
+
+<!-- Button to trigger modal -->
+<a href="/matt_hwy1/uEQEP/4/show/" data-target="#myModal2" data-toggle="modal">Launch demo modal</a>
+
+<!-- Modal -->
+<div id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal Test Header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>​
+
+<!--▲▲▲main▲▲▲-->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+	$(function(){}
+		$('#click').on('click',fuction(){
+			$('#myModal').modal();
+		});
+	};)
+	</script>
+</body>
+</html>

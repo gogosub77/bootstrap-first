@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap3.3.6のModal(リモートモーダルダイアログ)を使用するサンプル</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+</head>
+<body>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">
+      <span aria-hidden="true">&#215;</span><span class="sr-only">閉じる</span>
+    </button>
+    <h4 class="modal-title">Remote Modal タイトル</h4>
+  </div><!-- /modal-header -->
+  <div class="modal-body">
+    <p>本文</p>
+    <p>
+      <a class="btn btn-info" href="#001" data-dismiss="modal">data-dismiss 有り</a>
+      <a class="btn btn-info" href="#002">data-dismiss 無し</a>
+    </p>
+  </div><!-- /modal-body -->
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+    <button type="button" class="btn btn-primary">変更を保存</button>
+  </div><!-- /modal-footer -->
+</body>
+</html>
